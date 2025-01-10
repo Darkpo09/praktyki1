@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Prowizyjny</title>
+    <link rel="stylesheet" href="2.style.css">
+
+</head>
+<body>
+    <header>
+        <h1>Kalkulator Prowizyjny</h1>
+    </header>
+    <div class="kalkulator">
+        
+        <div class="calosc">
+            <label for="wartosc">Wartość sprzedaży (PLN):</label>
+            <input type="number" id="wartosc" placeholder="Wprowadź wartość sprzedaży">
+        </div>
+        <div class="calosc">
+            <label for="marza">Marża (%) :</label>
+            <input type="number" id="marza" placeholder="Wprowadź marżę">
+        </div>
+        <button onclick="calculateCommission()">Oblicz prowizję</button>
+        <div class="wynik" id="wynik"></div>
+    </div>
+
+</body>
+</html>

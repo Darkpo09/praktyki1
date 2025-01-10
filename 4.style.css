@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #9EA3B0;
+}
+header {
+    background-color: #0D1F2D;
+    color: #9EA3B0;
+    padding: 10px 20px;
+    text-align: center;
+}
+.calosc {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+.produkt {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+.produkt:hover {
+    transform: scale(1.05);
+}
+.produkt img {
+    max-width: 100%;
+    border-bottom: 1px solid #ddd;
+}
+.produkt h3 {
+    margin: 15px 0 10px;
+    font-size: 1.2em;
+}
+.produkt p {
+    margin: 10px 15px;
+    color: #555;
+    font-size: 0.9em;
+}
+.produkt .cena {
+    font-weight: bold;
+    color: #e67e22;
+    margin-bottom: 15px;
+}
+.produkt button {
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+.produkt button:hover {
+    background-color: #d35400;
+}
+
+img{
+    height: 250px;
+}
+
+footer{
+    background-color: #FAE1DF;
+    color: #9EA3B0;
+    padding: 10px 0px;
+    text-align: center;
+    margin-top: 95px;
+    height: 100px;
+    clear: both;
+    line-height: 60px;
+}
