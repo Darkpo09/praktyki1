@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalkulator Prowizyjny</title>
     <link rel="stylesheet" href="2.style.css">
-
 </head>
 <body>
     <header>
         <h1>Kalkulator Prowizyjny</h1>
     </header>
     <div class="kalkulator">
-        
         <div class="calosc">
             <label for="wartosc">Wartość sprzedaży (PLN):</label>
             <input type="number" id="wartosc" placeholder="Wprowadź wartość sprzedaży">
@@ -25,5 +23,20 @@
         <div class="wynik" id="wynik"></div>
     </div>
 
+    <script>
+        function calculateCommission() {
+            const wartoscSprzedazy = parseFloat(document.getElementById('wartosc').value);
+            const marza = parseFloat(document.getElementById('marza').value);
+
+            if (isNaN(wartoscSprzedazy) || isNaN(marza) || wartoscSprzedazy <= 0 || marza <= 0) {
+                document.getElementById('wynik').textContent = "Proszę wprowadzić poprawne dane.";
+                return;
+            }
+
+            const prowizja = (wartoscSprzedazy * marza) / 100;
+
+            document.getElementById('wynik').textContent = `Prowizja dla sprzedawcy: ${prowizja.toFixed(2)} PLN`;
+        }
+    </script>
 </body>
 </html>

@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>karuzela pokemonów</title>
+    <title>Karuzela Pokemonów</title>
     <link rel="stylesheet" href="7.style.css">
 </head>
 <body>
-    <h1>Ulubione pokemony</h1>
+    <h1>Ulubione Pokemony</h1>
     <div class="karuzela">
         <div class="karuzela-calosc">
             <div class="karuzela-slide">
@@ -43,8 +43,54 @@
             <button class="karuzela-przycisk next">&gt;</button>
         </div>
     </div>
+
+    <script>
+        const track = document.querySelector('.karuzela-calosc');
+        const slides = Array.from(track.children);
+        const prevButton = document.querySelector('.karuzela-przycisk.prev');
+        const nextButton = document.querySelector('.karuzela-przycisk.next');
+
+        if (!slides.length) {
+            console.error("Brak slajdów do wyświetlenia.");
+        } else {
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            let currentIndex = 1;
+
+            track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+
+            const moveToSlide = (index) => {
+                track.style.transition = 'transform 0.5s ease-in-out';
+                track.style.transform = `translateX(-${slideWidth * index}px)`;
+            };
+
+            nextButton.addEventListener('click', () => {
+                currentIndex++;
+                moveToSlide(currentIndex);
+
+                track.addEventListener('transitionend', function resetNext() {
+                    if (currentIndex === slides.length - 1) {
+                        track.style.transition = 'none';
+                        currentIndex = 1;
+                        track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+                    }
+                    track.removeEventListener('transitionend', resetNext);
+                });
+            });
+
+            prevButton.addEventListener('click', () => {
+                currentIndex--;
+                moveToSlide(currentIndex);
+
+                track.addEventListener('transitionend', function resetPrev() {
+                    if (currentIndex === 0) {
+                        track.style.transition = 'none';
+                        currentIndex = slides.length - 2;
+                        track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+                    }
+                    track.removeEventListener('transitionend', resetPrev);
+                });
+            });
+        }
+    </script>
 </body>
 </html>
-
-
-

@@ -8,6 +8,16 @@
 </head>
 <body>
     <h1>Kliknij, aby dodać Vapoyrona!</h1>
+
+    <script>
+        document.body.addEventListener('click', function(event) {
+            const vapoyron = document.createElement('div');
+            vapoyron.classList.add('vapoyron');
+            vapoyron.style.left = `${event.pageX - 50}px`;
+            vapoyron.style.top = `${event.pageY - 50}px`;
+            document.body.appendChild(vapoyron);
+        });
+    </script>
 </body>
 </html>
 

@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <title>Kalkulator Podatkowy Brutto-Netto</title>
     <link rel="stylesheet" href="1.style.css">
-    
 </head>
 <body>
-
     <header>
         <h1>Kalkulator Brutto/Netto</h1>
     </header>
@@ -27,5 +25,21 @@
         <button onclick="calculateNetto()">Oblicz kwotę netto</button>
         <div class="wynik" id="wynik"></div>
     </div>
+
+    <script>
+        function calculateNetto() {
+            const kwota = parseFloat(document.getElementById('kwota').value);
+            const podatek = parseFloat(document.getElementById('podatek').value);
+
+            if (isNaN(kwota) || kwota <= 0) {
+                document.getElementById('wynik').textContent = "Proszę wprowadzić poprawną kwotę brutto.";
+                return;
+            }
+
+            const netto = kwota / (1 + podatek / 100);
+            document.getElementById('wynik').textContent = `Kwota netto: ${netto.toFixed(2)} zł`;
+        }
+    </script>
 </body>
 </html>
+
