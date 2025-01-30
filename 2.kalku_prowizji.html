@@ -19,24 +19,29 @@
             <label for="marza">Marża (%) :</label>
             <input type="number" id="marza" placeholder="Wprowadź marżę">
         </div>
-        <button onclick="calculateCommission()">Oblicz prowizję</button>
+        <button onclick="kalkuprowizji()">Oblicz prowizję</button>
+
         <div class="wynik" id="wynik"></div>
     </div>
 
     <script>
-        function calculateCommission() {
-            const wartoscSprzedazy = parseFloat(document.getElementById('wartosc').value);
+        function kalkuprowizji() {
+            // Pobranie wartości sprzedaży i marży, zamiana na liczby
+            const wartosc = parseFloat(document.getElementById('wartosc').value);
             const marza = parseFloat(document.getElementById('marza').value);
-
-            if (isNaN(wartoscSprzedazy) || isNaN(marza) || wartoscSprzedazy <= 0 || marza <= 0) {
-                document.getElementById('wynik').textContent = "Proszę wprowadzić poprawne dane.";
-                return;
+    
+            // Sprawdzenie poprawności danych
+            if (wartosc <= 0 || marza <= 0) {
+                return document.getElementById('wynik').textContent = "Proszę wprowadzić poprawne dane.";
             }
-
-            const prowizja = (wartoscSprzedazy * marza) / 100;
-
-            document.getElementById('wynik').textContent = `Prowizja dla sprzedawcy: ${prowizja.toFixed(2)} PLN`;
+    
+            // Obliczenie prowizji
+            let prowizja = (wartosc * marza) / 100;
+    
+            // Wyświetlenie wyniku
+            document.getElementById('wynik').textContent = `Prowizja: ${prowizja.toFixed(2)} zł`;
         }
     </script>
+    
 </body>
 </html>

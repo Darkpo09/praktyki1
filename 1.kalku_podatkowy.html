@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <title>Kalkulator Podatkowy Brutto-Netto</title>
     <link rel="stylesheet" href="1.style.css">
+
 </head>
 <body>
+
     <header>
-        <h1>Kalkulator Brutto/Netto</h1>
+        <h1>Kalkulator Brutto => Netto</h1>
     </header>
+
     <div class="kalkulator">
+
         <div class="calosc">
             <label for="kwota">Kwota brutto (zł):</label>
             <input type="number" id="kwota" placeholder="Wprowadź kwotę brutto">
         </div>
+
         <div class="calosc">
             <label for="podatek">Stawka podatku (%):</label>
             <select id="podatek">
@@ -22,24 +27,37 @@
                 <option value="32">32%</option>
             </select>
         </div>
-        <button onclick="calculateNetto()">Oblicz kwotę netto</button>
+
+        <button onclick="kalkulatornetto()">Oblicz kwotę netto</button>
         <div class="wynik" id="wynik"></div>
+        
     </div>
 
     <script>
-        function calculateNetto() {
+        function kalkulatornetto() {
+        // Pobieranie wartości z pól input i przekształcenie na liczby
+
             const kwota = parseFloat(document.getElementById('kwota').value);
             const podatek = parseFloat(document.getElementById('podatek').value);
+    
+        // Sprawdzenie, czy kwota jest poprawna
 
-            if (isNaN(kwota) || kwota <= 0) {
-                document.getElementById('wynik').textContent = "Proszę wprowadzić poprawną kwotę brutto.";
-                return;
+            if (!kwota || kwota <= 0) {
+                return (document.getElementById('wynik').textContent = "Podaj poprawną kwotę brutto.");
             }
+    
+        // Obliczenie kwoty netto
 
-            const netto = kwota / (1 + podatek / 100);
-            document.getElementById('wynik').textContent = `Kwota netto: ${netto.toFixed(2)} zł`;
+            let wynik = kwota - (kwota * (podatek / 100));
+
+        // Wyświetlenie wyniku
+
+            document.getElementById('wynik').textContent = `Kwota netto: ${wynik.toFixed(2)} zł`;
+
+
         }
     </script>
+    
 </body>
 </html>
 

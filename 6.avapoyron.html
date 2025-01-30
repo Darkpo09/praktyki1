@@ -1,23 +1,33 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Vapoyron</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaporyon</title>
     <link rel="stylesheet" href="6.style.css">
-    
 </head>
 <body>
-    <h1>Kliknij, aby dodać Vapoyrona!</h1>
+    <h1>Vaporyon Counter</h1>
+    <button onclick="dodaj()">KLIKNIJ MNIE!!!</button>
+    <div id="calosc"></div>
 
-    <script>
-        document.body.addEventListener('click', function(event) {
-            const vapoyron = document.createElement('div');
-            vapoyron.classList.add('vapoyron');
-            vapoyron.style.left = `${event.pageX - 50}px`;
-            vapoyron.style.top = `${event.pageY - 50}px`;
-            document.body.appendChild(vapoyron);
-        });
-    </script>
+<script>
+    function dodaj() {
+        // Pobranie elementu o ID "calosc"
+        const container = document.getElementById('calosc');
+            
+        // Tworzenie nowego elementu div
+        const vaporyon = document.createElement('div');
+            
+        // Nadanie nowemu elementowi klasy "vaporyon"
+        vaporyon.className = 'vaporyon';
+            
+        // Dodanie nowego elementu do kontenera
+        container.appendChild(vaporyon);
+    }
+</script>
+    
 </body>
 </html>
+
 

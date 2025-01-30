@@ -1,20 +1,34 @@
-
 body {
     font-family: Arial, sans-serif;
+    text-align: center;
     margin: 0;
     padding: 0;
+    background-color: #f0f8ff;
+}
+#calosc{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    height: 100px;
-    background-color: #f0f0f0;
-    margin-top: 20%;
-        }
-.vapoyron {
-    position: absolute;
+    gap: 10px;
+    margin-top: 20px;
+}
+.vaporyon {
     width: 100px;
     height: 100px;
-    background-image: url('vaporeon.jpg');
+    background-image: url('vaporeon.jpg'); /* Placeholder image */
     background-size: cover;
-    }
-    
+    background-position: center;
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+button:hover {
+    background-color: #005f99;
+}
